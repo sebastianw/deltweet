@@ -40,7 +40,7 @@ $ python3 -m venv venv
 $ source venv/bin/activate
 (venv) $ pip install -U pip wheel
 (venv) $ pip install -r requirements.txt
-(venv) $ python3 ./deltweet.py -d -t twitter-archive/data/tweets.js -a twitter-auth.txt
+(venv) $ python3 ./deltweet.py -t twitter-archive/data/tweets.js -a twitter-auth.txt
 2023-10-18 17:54:49,570 - DelTweet._setup_tweets - INFO - Loaded 31209 tweets
 2023-10-18 17:54:49,595 - DelTweet._setup_tweets - INFO - Setup 31209 tweets with 15702 already deleted
 2023-10-18 17:54:49,638 - DelTweet.delete_tweet - INFO - Deleting tweet 7748268540821504
