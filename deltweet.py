@@ -103,6 +103,11 @@ class DelTweet:
         already_deleted = len([tid for tid, status in self.tweetstatus.items() if status == TweetStatus.DELETED])
         self.log.info(f"Setup {len(self.tweetstatus)} tweets with {already_deleted} already deleted")
 
+    def _stats(self) -> tuple[int, int, int]:
+        """Return a tuple of all tweets, already deleted and still to be deleted"""
+        already_deleted = len([tid for tid, status in self.tweetstatus.items() if status == TweetStatus.DELETED])
+        return len(self.tweetstatus), already_deleted, len(self.tweetstatus) - already_deleted
+
     def delete_tweet(self, tid: str) -> bool:
         self.log.info(f"Deleting tweet {tid}")
         data = {"variables": {"tweet_id": tid, "dark_request": False}, "queryId": "VaenaVgh5q5ih7kvyVjgtg"}
@@ -122,6 +127,9 @@ class DelTweet:
             counter += 1
             if not counter % 100:
                 self._save_cache()
+            if not counter % 1000:
+                stats = self._stats()
+                self.log.info(f"Total {stats[0]} tweets, {stats[1]} deleted, {stats[2]} to go")
         self._save_cache()
 
 
