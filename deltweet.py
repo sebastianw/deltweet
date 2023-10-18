@@ -114,10 +114,14 @@ class DelTweet:
         return True
 
     def run(self):
+        counter = 0
         for tid, status in self.tweetstatus.items():
             if status == TweetStatus.DELETED:
                 continue
             self.delete_tweet(tid)
+            counter += 1
+            if not counter % 100:
+                self._save_cache()
         self._save_cache()
 
 
