@@ -1,0 +1,10 @@
+*.txt
+cache.json
+tweets.js
+*.pyc
+__pycache__/
+venv/
+.idea/
+*.egg-info/
+dist/
+build/
