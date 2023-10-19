@@ -20,7 +20,7 @@ Go to the Twitter homepage and open the tool on the _Network_ Page. Then reload 
 You should see a lot of requests. Look for requests of the type `xhr`. When you find one click on it
 and on the right side you should see a tab with the headers of the request. The authentication data is
 under `Response Headers`. You need three header lines to make this tool work, `x-csrf-token`, `authorization`
-and `cookie`.
+and `cookie`. Please copy the entire value of these three headers, otherwise authentication will fail.
 
 Copy all three of these into a textfile. It should look something like this:
 
